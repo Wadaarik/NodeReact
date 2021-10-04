@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import React from 'react';
 import './App.css';
 import Table from "./components/table";
+import logo from './loituma.jpg';
 
 class Navbar extends React.Component {
     render()  {
@@ -12,6 +13,8 @@ class Navbar extends React.Component {
                 <p><Link to="/">Home</Link></p>
                 <p><Link to="/about">A propos</Link></p>
                 <p><Link to="/table">Table</Link></p>
+                <p class="logo"><Link to="/"><img src={logo} alt="Sheesh"></img></Link></p>
+                <p><Link to="/about">About</Link></p>
                 <p><Link to="/topics">Topics</Link></p>
             </div>
   
