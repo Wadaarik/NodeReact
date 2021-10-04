@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+/* Navbar */
+
+.navbar{
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  color: red;
+}
