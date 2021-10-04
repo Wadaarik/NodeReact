@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 import Table from "./components/table";
 import logo from './loituma.jpg';
+import Signup from "./components/signup";
+import Login from "./components/login";
 
 class Navbar extends React.Component {
     render()  {
@@ -10,12 +12,11 @@ class Navbar extends React.Component {
         <BrowserRouter>
           <div>
             <div class="navbar">
-                <p><Link to="/">Home</Link></p>
+                <p class="logo"><Link to="/"><img src={logo} alt="Sheesh"></img></Link></p>
                 <p><Link to="/about">A propos</Link></p>
                 <p><Link to="/table">Table</Link></p>
-                <p class="logo"><Link to="/"><img src={logo} alt="Sheesh"></img></Link></p>
-                <p><Link to="/about">About</Link></p>
-                <p><Link to="/topics">Topics</Link></p>
+                <p><Link to="/signup">Sign up</Link></p>
+                <p><Link to="/login">Log In</Link></p>
             </div>
   
             <hr />
@@ -23,7 +24,8 @@ class Navbar extends React.Component {
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
               <Route path="/table" component={Table} />
-              <Route path="/topics" component={Topics} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/login" component={Login} />
             </div>
           </div>
         </BrowserRouter>
@@ -48,16 +50,6 @@ class Navbar extends React.Component {
       return (
         <div>
           <h2>About</h2>
-        </div>
-      );
-    }
-  }
-  
-  class Topics extends React.Component {
-    render() {
-      return (
-        <div>
-          <h2>Topics</h2>
         </div>
       );
     }
