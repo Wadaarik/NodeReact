@@ -7,7 +7,7 @@ const normalizePort = val => {
     if(port>=0){return port;}
     return false
 }
-const port = normalizePort(process.env.PORT||3000)
+const port = normalizePort(process.env.PORT||2999)
 app.set('port',port)
 
 const errorHandler = error =>{

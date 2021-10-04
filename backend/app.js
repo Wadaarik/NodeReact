@@ -4,7 +4,7 @@ const app = express()
 const mongoose = require('mongoose')
 const Post = require('./models/post')
 const port = 3000
-const testRoutes = require('./routes/test')
+const blogRoutes = require('./routes/blog')
 const userRoutes = require('./routes/user')
 const path = require('path')
 mongoose.connect('mongodb+srv://Purplepill:Wadaarik27exe@cluster0.tgsjb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
@@ -30,7 +30,7 @@ app.use(express.urlencoded({
     extended :true
 }))
 app.use('/images',express.static(path.join(__dirname,'images')))
-app.use('/test',testRoutes)
+app.use('/blog',blogRoutes)
 app.use('/user',userRoutes)
 
 module.exports = app
