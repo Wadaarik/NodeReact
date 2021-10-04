@@ -21,7 +21,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -45,5 +44,20 @@
   left: 0;
   right: 0;
   height: 100px;
-  color: red;
+  background-color: #f2c9E0;
+  justify-content: flex-start;
+  align-items: center;
+}
+.navbar p{
+  padding-left: 50px;
+}
+.navbar p a{
+  color: black;
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar .logo a img{
+  width: 75px;
 }
