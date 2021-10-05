@@ -26,23 +26,24 @@ class Signup extends React.Component {
     render()  {
         return  (
             <div id="signup" className="signup">
-                
-                <h1>Créer un compte</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div class="form">
-                        <label for="pseudo">Pseudo : </label>
-                        <input name="pseudo" type="text" onChange={(e) => this.setState({ pseudo: e.target.value })} />
-                    </div>
-                    <div class="form">
-                        <label for="email">Email : </label>
-                        <input name="email" type="text" onChange={(e) => this.setState({ email: e.target.value })} />
-                    </div>
-                    <div class="form">
-                        <label for="mdp">Mot de passe : </label>
-                        <input name="mdp" type="password" onChange={(e) => this.setState({ password: e.target.value })} />
-                    </div>
-                    <button type="submit" class="submit">S'inscrire</button>
-                </form>
+                <div id="form">
+                    <h1>Créer un compte</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <div class="form">
+                            <label for="pseudo">Pseudo : </label>
+                            <input name="pseudo" type="text" onChange={(e) => this.setState({ pseudo: e.target.value })} />
+                        </div>
+                        <div class="form">
+                            <label for="email">Email : </label>
+                            <input name="email" type="text" onChange={(e) => this.setState({ email: e.target.value })} />
+                        </div>
+                        <div class="form">
+                            <label for="mdp">Mot de passe : </label>
+                            <input name="mdp" type="password" onChange={(e) => this.setState({ password: e.target.value })} />
+                        </div>
+                        <button type="submit" class="submit">S'inscrire</button>
+                    </form>
+                </div>
 
             </div>
         );
