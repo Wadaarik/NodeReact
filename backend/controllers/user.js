@@ -10,6 +10,7 @@ exports.signup = (req,res,next) =>{
         .then(hash => {
             console.log('1')
             const user = new User({
+                pseudo:req.body.pseudo,
                 email:req.body.email,
                 password: hash
             })  
@@ -24,12 +25,12 @@ exports.login = (req,res,next) => {
     User.findOne({email: req.body.email})
         .then(user=>{
             if(!user){
-                return res.status(401).json({error: 'pas trouvé'})
+                return res.status(401).json({error: 'not found'})
             }
             bcrypt.compare(req.body.password, user.password)
                 .then(ok =>{
                     if(!ok){
-                        return res.status((401).json({error: 'incorect mdp'}))
+                        return res.status((401).json({error: 'bad password'}))
                     }
                     res.status(200).json({
                         userId: user._id,

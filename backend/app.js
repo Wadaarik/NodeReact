@@ -7,11 +7,11 @@ const port = 3000
 const blogRoutes = require('./routes/blog')
 const userRoutes = require('./routes/user')
 const path = require('path')
-mongoose.connect('mongodb+srv://Purplepill:Wadaarik27exe@cluster0.tgsjb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-{
-    useNewUrlParser: true,
-    useUnifiedTopology:true
-})
+mongoose.connect('mongodb+srv://loituma:gerard@cluster0.2fixe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology:true
+    })
 .then(()=> console.log("db valid"))
 .catch(()=> console.log("db error"))
 /*
