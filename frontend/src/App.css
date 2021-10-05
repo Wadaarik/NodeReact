@@ -63,3 +63,39 @@
 }
 
 /* SignUp */
+
+#signup {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2c9E0;
+  width: 30%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 200px;
+}
+
+#signup h1{
+ margin: 0;
+}
+
+#signup .form{
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  width: 80%;
+}
+
+#signup .form label{
+  font-size: 20px;
+}
+
+#signup .form input{
+  margin-top: 5px;
+  width: 100%;
+  border-radius: 20px;
+  border: 0px;
+}

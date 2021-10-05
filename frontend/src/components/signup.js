@@ -8,15 +8,15 @@ class Signup extends React.Component {
                 
                 <h1>Créer un compte</h1>
                 <div class="form">
-                    <label for="pseudo"> Pseudo</label>
+                    <label for="pseudo">Pseudo : </label>
                     <input name="pseudo" type="text" />
                 </div>
                 <div class="form">
-                    <label for="email"> Email</label>
+                    <label for="email">Email : </label>
                     <input name="email" type="text" />
                 </div>
                 <div class="form">
-                    <label for="mdp"> Mot de passe</label>
+                    <label for="mdp">Mot de passe : </label>
                     <input name="mdp" type="text" />
                 </div>
 
