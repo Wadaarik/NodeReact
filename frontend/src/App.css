@@ -1,3 +1,13 @@
+html, body{
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+body{
+  background: url("./background-dorothee.png") no-repeat fixed right;
+  background-size: 20%;
+  background-position-y: 60vh;
+}
 .App {
   text-align: center;
 }
@@ -34,6 +44,40 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/*
+TABLE
+ */
+table, td, th {
+  text-align: center;
+}
+thead tr{
+  background : #f2c9E0;
+}
+td, th {
+  padding: 5px 15px;
+}
+td{
+  border-bottom: 1px solid #282c34;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#table{
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#edit{
+  color: #e0a253;
+}
+#delete{
+  color: #BF3F61;
 }
 
 /* Navbar */
