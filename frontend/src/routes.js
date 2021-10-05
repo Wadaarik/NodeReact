@@ -12,11 +12,13 @@ class Navbar extends React.Component {
         <BrowserRouter>
           <div>
             <div className="navbar">
-                <p className="logo"><Link to="/"><img src={logo} alt="Sheesh"></img></Link></p>
-                <p><Link to="/about">A propos</Link></p>
-                <p><Link to="/table">Table</Link></p>
-                <p><Link to="/signup">Sign Up</Link></p>
-                <p><Link to="/login">Login</Link></p>
+                <Link className="logo" to="/"><img src={logo} alt="Sheesh"></img></Link>
+                <div className="links">
+                    <p><Link to="/about">A propos</Link></p>
+                    <p><Link to="/table">Table</Link></p>
+                    <p><Link to="/signup">Sign Up</Link></p>
+                    <p><Link to="/login">Login</Link></p>
+                </div>
             </div>
             <div className="main-route-place">
               <Route exact path="/" component={Home} />
@@ -46,8 +48,10 @@ class Navbar extends React.Component {
   class About  extends React.Component {
     render() {
       return (
-        <div>
-          <h2>About</h2>
+        <div id="about">
+            <div id="main-contain">
+                <h2>About</h2>
+            </div>
         </div>
       );
     }
@@ -56,8 +60,10 @@ class Navbar extends React.Component {
   class Topics extends React.Component {
     render() {
       return (
-        <div>
-          <h2>Topics</h2>
+        <div id="topics">
+            <div id="main-contain">
+                <h2>Topics</h2>
+            </div>
         </div>
       );
     }
