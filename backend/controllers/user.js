@@ -5,7 +5,9 @@ const jsontoken = require('jsonwebtoken')
 
 exports.signup = (req,res,next) =>{
     console.log('begin sign')
-
+    if(req.body.pseudo === '' || req.body.email === '' || req.body.password === ''){
+        return res.status(422).json({error: 'no empty input'})
+    }
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
             console.log('1')

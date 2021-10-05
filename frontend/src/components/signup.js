@@ -1,12 +1,15 @@
 import '../App.css';
 import React from 'react';
 import axios from 'axios';
+import {Redirect} from "react-router-dom";
 
 class Signup extends React.Component {
     state = {
         pseudo: '',
         email: '',
-        password: ''
+        password: '',
+        error: null,
+        toRedirect: null
     }
 
     handleSubmit = event => {
@@ -20,14 +23,28 @@ class Signup extends React.Component {
             pseudo,
             email,
             password
-        })
+        }).then(res => {
+            if (res.status === 201) {
+                this.setState({ toRedirect: true });
+            }
+        }).catch(error => {
+            if (error.response) {
+                this.setState({ error: "Aucun champs ne peut être vide." });
+            }
+        });
     }
 
     render()  {
+        if (this.state.toRedirect !== null && this.state.toRedirect === true) {
+            return (
+                <Redirect to="/login" />
+            );
+        }
         return  (
             <div id="signup" className="signup">
                 <div id="form">
                     <h1>Créer un compte</h1>
+                    {this.state.error ? <p>{this.state.error}</p> : ''}
                     <form onSubmit={this.handleSubmit}>
                         <div class="form">
                             <label for="pseudo">Pseudo : </label>
