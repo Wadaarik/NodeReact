@@ -148,12 +148,19 @@ table {
   border: 0px;
 }
 
-input.submit{
+button.submit{
   padding: 15px;
   border-radius: 20px;
   background-color: black;
   color: white;
   border: none;
   font-size: 20px;
+  transition: 250ms ease-in;
+  cursor: pointer;
+}
+button.submit:hover{
+  background-color: white;
+  color: black;
+  transition: 250ms ease-in;
 }
 

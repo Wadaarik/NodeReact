@@ -41,7 +41,7 @@ class Signup extends React.Component {
                         <label for="mdp">Mot de passe : </label>
                         <input name="mdp" type="password" onChange={(e) => this.setState({ password: e.target.value })} />
                     </div>
-                    <input type="submit" value='Envoyer' class="submit"/>
+                    <button type="submit" class="submit">S'inscrire</button>
                 </form>
 
             </div>
