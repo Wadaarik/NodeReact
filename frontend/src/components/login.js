@@ -1,11 +1,14 @@
 import '../App.css';
 import React from 'react';
 import axios from "axios";
+import {Redirect} from "react-router-dom";
 
 class Login extends React.Component {
     state = {
         email: '',
-        password: ''
+        password: '',
+        error: null,
+        toRedirect: null
     }
 
     handleSubmit = event => {
@@ -19,18 +22,25 @@ class Login extends React.Component {
             password
         }).then(res => {
             localStorage.setItem('tokenUser', res.data.token);
+            this.setState({ toRedirect: true });
         }).catch(error => {
             if (error.response) {
-                alert('Le mail ou le mot de passe n\'est pas bon. Merci de vérifier.');
+                this.setState({ error: "Le mail ou le mot de passe n\'est pas bon. Merci de vérifier." });
             }
         });
     }
 
     render()  {
+        if (this.state.toRedirect !== null && this.state.toRedirect === true) {
+            return (
+                <Redirect to="/table" />
+            );
+        }
         return  (
             <div id="login" className="login">
                 <div id="form">
                     <h1>Se login</h1>
+                    {this.state.error ? <p>{this.state.error}</p> : ''}
                     <form onSubmit={this.handleSubmit}>
                         <div className="form">
                             <label htmlFor="email">Email : </label>
