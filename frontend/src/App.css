@@ -81,21 +81,35 @@
 #signup h1{
  margin: 0;
 }
-
-#signup .form{
+#signup form{
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
+  align-items: center;
+}
+
+#signup form .form{
   margin: 15px 0;
   width: 80%;
 }
 
-#signup .form label{
+#signup form .form label{
   font-size: 20px;
 }
 
-#signup .form input{
+#signup form .form input{
   margin-top: 5px;
   width: 100%;
   border-radius: 20px;
   border: 0px;
 }
+
+input.submit{
+  padding: 15px;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 20px;
+}
+

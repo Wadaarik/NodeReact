@@ -18,7 +18,7 @@ class Navbar extends React.Component {
                 <p><Link to="/signup">Sign up</Link></p>
                 <p><Link to="/login">Log In</Link></p>
             </div>
-  
+
             <div className="main-route-place">
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
