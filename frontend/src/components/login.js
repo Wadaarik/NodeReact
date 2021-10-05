@@ -30,20 +30,21 @@ class Login extends React.Component {
 
     render()  {
         return  (
-            <div id="table" className="table">
-                
-                <h1>Se login</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form">
-                        <label htmlFor="email">Email : </label>
-                        <input name="email" type="text" onChange={(e) => this.setState({email: e.target.value})}/>
-                    </div>
-                    <div className="form">
-                        <label htmlFor="mdp">Mot de passe : </label>
-                        <input name="mdp" type="password" onChange={(e) => this.setState({password: e.target.value})}/>
-                    </div>
-                    <input type="submit" value='Connection' className="submit"/>
-                </form>
+            <div id="login" className="login">
+                <div id="form">
+                    <h1>Se login</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form">
+                            <label htmlFor="email">Email : </label>
+                            <input name="email" type="text" onChange={(e) => this.setState({email: e.target.value})}/>
+                        </div>
+                        <div className="form">
+                            <label htmlFor="mdp">Mot de passe : </label>
+                            <input name="mdp" type="password" onChange={(e) => this.setState({password: e.target.value})}/>
+                        </div>
+                        <button type="submit" className="submit">Se connecter</button>
+                    </form>
+                </div>
             </div>
         );
     }
