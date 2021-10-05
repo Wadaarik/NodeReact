@@ -18,9 +18,7 @@ class Login extends React.Component {
             email,
             password
         }).then(res => {
-            console.log(res.data);
-            // console.log(res.data.token);
-            window.token = res.data.token;
+            localStorage.setItem('tokenUser', res.data.token);
         }).catch(error => {
             if (error.response) {
                 alert('Le mail ou le mot de passe n\'est pas bon. Merci de vérifier.');
