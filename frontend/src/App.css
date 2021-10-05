@@ -2,6 +2,7 @@ html, body{
   width: 100vw;
   height: 100vh;
   margin: 0;
+  overflow-x: hidden;
 }
 body{
   background: url("./background-dorothee.png") no-repeat fixed right;
@@ -46,6 +47,63 @@ body{
   }
 }
 
+/* Navbar */
+
+.navbar{
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 15vh;
+  background-color: #f2c9E0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5vw;
+}
+.navbar .links{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.navbar p{
+  padding: 0 10px;
+}
+.navbar p a{
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar .logo img{
+  width: 75px;
+}
+
+/*
+ABOUT
+ */
+#about{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*
+TOPICS
+ */
+#topics{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /*
 TABLE
  */
@@ -67,7 +125,7 @@ table {
 }
 #table{
   width: 100vw;
-  height: auto;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,46 +138,26 @@ table {
   color: #BF3F61;
 }
 
-/* Navbar */
-
-.navbar{
-  display: flex;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background-color: #f2c9E0;
-  justify-content: flex-start;
-  align-items: center;
-}
-.navbar p{
-  padding-left: 50px;
-}
-.navbar p a{
-  color: black;
-  font-size: 30px;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.navbar .logo a img{
-  width: 75px;
-}
-
 /* SignUp */
 
 #signup {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #f2c9E0;
-  width: 30%;
-  height: auto;
   justify-content: center;
   align-items: center;
-  margin: auto;
+}
+#form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2c9E0;
+  width: 30%;
   padding: 30px;
   border-radius: 20px;
-  margin-top: 200px;
+  margin-top: 10vh;
 }
 
 #signup h1{
@@ -148,12 +186,19 @@ table {
   border: 0px;
 }
 
-input.submit{
+button.submit{
   padding: 15px;
   border-radius: 20px;
   background-color: black;
   color: white;
   border: none;
   font-size: 20px;
+  transition: 250ms ease-in;
+  cursor: pointer;
+}
+button.submit:hover{
+  background-color: white;
+  color: black;
+  transition: 250ms ease-in;
 }
 
