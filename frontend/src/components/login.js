@@ -42,7 +42,7 @@ class Login extends React.Component {
             <div id="login" className="login">
                 <div id="form">
                     <h1>Se login</h1>
-                    {this.state.error ? <p>{this.state.error}</p> : ''}
+                    {this.state.error ? <p className="msgError">{this.state.error}</p> : ''}
                     <form onSubmit={this.handleSubmit}>
                         <div className="form">
                             <label htmlFor="email">Email : </label>
