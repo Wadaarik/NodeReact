@@ -12,7 +12,7 @@ class Post extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
 
-        const autor = this.state.text ;
+        const autor = localStorage.getItem('pseudoUser') ;
         const title = this.state.title ;
         const text = this.state.text ;
 

@@ -5,6 +5,7 @@ import Table from "./components/table";
 import logo from './loituma.gif';
 import Signup from "./components/signup";
 import Login from "./components/login";
+import Post from "./components/post";
 
 class Navbar extends React.Component {
     render()  {
@@ -26,6 +27,7 @@ class Navbar extends React.Component {
               <Route path="/table" component={Table} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
+              <Route path="/post" component={Post} />
             </div>
           </div>
         </BrowserRouter>
