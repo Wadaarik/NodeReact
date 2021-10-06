@@ -9,7 +9,7 @@ exports.createPost = (req,res,next)=>{
        // urlImage: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     })
     p.save()
-        .then(() => res.status(201).json({success : 'Post créé'}))
+        .then(() => res.status(201).json({success : "Post créé"}))
         .catch(error => res.status(422).json({error: "Une erreur est survenu lors de la création du post."}))
 }
 
@@ -20,8 +20,8 @@ exports.updatePostId =(req,res,next)=>{
        // urlImage: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     //}: { ...req.body};
     Post.updateOne({_id: req.params.id},{...req.body, _id: req.params.id})
-        .then(()=> res.status(200).json({message: 'ok'}))
-        .catch(()=> res.status(400).json({ error}))
+        .then(()=> res.status(201).json({success : "Le post a été mis à jour"}))
+        .catch(()=> res.status(400).json({ error: "Une erreur est survenu lors de la mis à jour du post."}))
 }
 
 exports.deletePostId =(req,res,next)=>{
@@ -31,7 +31,7 @@ exports.deletePostId =(req,res,next)=>{
            // const filename = post.urlImage.split('/images/')[1]
            // fs.unlink(`images/${filename}`,()=>{
                 Post.deleteOne({_id: req.params.id})
-                    .then(()=> res.status(200).json({message: 'ok'}))
+                    .then(()=> res.status(200).json({message: "ok"}))
                     .catch(error => res.status(400).json({error}))
             //})
         })

@@ -6,6 +6,7 @@ import logo from './loituma.gif';
 import Signup from "./components/signup";
 import Login from "./components/login";
 import Post from "./components/post";
+import EditPost from "./components/editPost";
 
 export default function Navbar() {
     const [logged, setLogged] = useState(localStorage.getItem('tokenUser') !== null ? true : false);
@@ -32,6 +33,7 @@ export default function Navbar() {
                         <Login callbackOnLog={()=>setLogged(true)} />
                     </Route>
                     <Route path="/disconnect" component={Disconnect} />
+                    <Route path="/editPost" component={EditPost} />
                 </div>
             </div>
         </BrowserRouter>
