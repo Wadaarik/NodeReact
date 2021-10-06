@@ -4,10 +4,10 @@ import axios from "axios";
 import {Redirect} from "react-router-dom";
 
 export default function Login({callbackOnLog}) {
-    const  [email, setEmail] = useState(localStorage.getItem('tokenUser') !== null ? true : false);
-    const  [password, setPassword] = useState(localStorage.getItem('tokenUser') !== null ? true : false);
-    const  [error, setError] = useState(localStorage.getItem('tokenUser') !== null ? true : false);
-    const  [toRedirect, setToRedirect] = useState(localStorage.getItem('tokenUser') !== null ? true : false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+    const [toRedirect, setToRedirect] = useState(null);
 
     function handleSubmit(event){
         event.preventDefault();
@@ -16,22 +16,25 @@ export default function Login({callbackOnLog}) {
             email,
             password
         }).then(res => {
-            localStorage.clear();
+            localStorage.clear(); // Clear localStorage pour être sur
+            // Set des items dans le local storage
             localStorage.setItem('tokenUser', res.data.token);
             localStorage.setItem('pseudoUser', res.data.pseudo);
+            // Callback de route.js afin de savoir si on n'est co et changer le menu
             callbackOnLog();
+            // met toRedirect à true afin de pouvoir redirect l'user
             setToRedirect(true);
         }).catch(error => {
             if (error.response) {
-               setError(error.response.data.error);
+                setError(error.response.data.error);
             }
         });
     }
 
-return (
-    <>
-    {toRedirect && <Redirect to="/post" />}
-    <div id="login" className="login">
+    return (
+        <>
+            {toRedirect && <Redirect to="/post" />}
+            <div id="login" className="login">
                 <div id="form">
                     <h1>Se login</h1>
                     {error ? <p className="msgError">{error}</p> : ''}
@@ -48,7 +51,7 @@ return (
                     </form>
                 </div>
             </div>
-</>
-)
+        </>
+    )
 }
 
