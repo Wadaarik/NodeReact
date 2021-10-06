@@ -6,7 +6,7 @@ const jsontoken = require('jsonwebtoken')
 exports.signup = (req,res,next) =>{
     console.log('begin sign')
     if(req.body.pseudo === '' || req.body.email === '' || req.body.password === ''){
-        return res.status(422).json({error: 'no empty input'})
+        return res.status(422).json({error: "Aucun champs ne peut être vide."})
     }
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
@@ -17,8 +17,8 @@ exports.signup = (req,res,next) =>{
                 password: hash
             })  
             user.save()
-                .then(()=> res.status(201).json({message: 'create user'}))
-                .catch(error=> res.status(400).json({error}))
+                .then(()=> res.status(201).json({message: "Création d\'un utilisateur réussi."}))
+                .catch(error=> res.status(422).json({error: "Ce mail est déjà utilisé pour un compte."}))
         })
         .catch(error=> res.status(500).json({error}))
 }
@@ -27,12 +27,12 @@ exports.login = (req,res,next) => {
     User.findOne({email: req.body.email})
         .then(user=>{
             if(!user){
-                return res.status(422).json({error: 'not found'})
+                return res.status(422).json({error: "Le mail ou le mot de passe n\'est pas bon. Merci de vérifier."})
             }
             bcrypt.compare(req.body.password, user.password)
                 .then(ok =>{
                     if(!ok){
-                        return res.status((422).json({error: 'bad password'}))
+                        return res.status((422).json({error: "Le mail ou le mot de passe n\'est pas bon. Merci de vérifier."}))
                     }
                     res.status(200).json({
                         userId: user._id,

@@ -29,7 +29,7 @@ class Signup extends React.Component {
             }
         }).catch(error => {
             if (error.response) {
-                this.setState({ error: "Aucun champs ne peut être vide." });
+                this.setState({ error: error.response.data.error });
             }
         });
     }

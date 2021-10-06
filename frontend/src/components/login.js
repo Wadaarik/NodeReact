@@ -25,7 +25,7 @@ class Login extends React.Component {
             this.setState({ toRedirect: true });
         }).catch(error => {
             if (error.response) {
-                this.setState({ error: "Le mail ou le mot de passe n\'est pas bon. Merci de vérifier." });
+                this.setState({ error: error.response.data.error });
             }
         });
     }
