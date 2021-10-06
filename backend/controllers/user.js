@@ -36,6 +36,7 @@ exports.login = (req,res,next) => {
                     }
                     res.status(200).json({
                         userId: user._id,
+                        pseudo: user.pseudo,
                         token: jsontoken.sign(
                             {userId: user._id},'jesuissecret',{ expiresIn:'48h'}
                         )

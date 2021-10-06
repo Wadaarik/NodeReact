@@ -21,7 +21,9 @@ class Login extends React.Component {
             email,
             password
         }).then(res => {
+            localStorage.clear();
             localStorage.setItem('tokenUser', res.data.token);
+            localStorage.setItem('pseudoUser', res.data.pseudo);
             this.setState({ toRedirect: true });
         }).catch(error => {
             if (error.response) {
