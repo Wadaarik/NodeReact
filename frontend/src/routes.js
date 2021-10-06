@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import React from 'react';
 import './App.css';
 import Table from "./components/table";
-import logo from './loituma.jpg';
+import logo from './loituma.gif';
 import Signup from "./components/signup";
 import Login from "./components/login";
 
