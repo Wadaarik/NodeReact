@@ -13,12 +13,12 @@ class Post extends React.Component {
         event.preventDefault();
 
         const autor = localStorage.getItem('pseudoUser') ;
-        const title = this.state.title ;
+        const titre = this.state.title ;
         const text = this.state.text ;
 
         axios.post(`http://localhost:2999/blog/`, {
             autor,
-            title,
+            titre,
             text
         })
     }
