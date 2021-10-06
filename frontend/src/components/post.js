@@ -6,7 +6,9 @@ class Post extends React.Component {
 
     state = {
         title: '',
-        text: ''
+        text: '',
+        error: null,
+        success: null
     }
 
     handleSubmit = event => {
@@ -20,24 +22,36 @@ class Post extends React.Component {
             autor,
             titre,
             text
-        })
+        }).then(res => {
+            if (res.status === 201) {
+                this.setState({success: res.data.success});
+                this.setState({error: null});
+            }
+        }).catch(error => {
+            if (error.response) {
+                this.setState({error: error.response.data.error});
+                this.setState({success: null});
+            }
+        });
     }
 
     render()  {
         return  (
-            <div id="post" class="post">
+            <div id="post" className="post">
                 <div>
                     <form id="form" onSubmit={this.handleSubmit}>
                         <h1>Création de post</h1>
-                        <div class="form">
-                            <label for="title">Titre : </label>
+                        {this.state.success ? <p className="msgSuccess">{this.state.success}</p> : ''}
+                        {this.state.error ? <p className="msgError">{this.state.error}</p> : ''}
+                        <div className="form">
+                            <label htmlFor="title">Titre : </label>
                             <input name="title" type="text" onChange={(e) => this.setState({ title: e.target.value })} />
                         </div>
-                        <div class="form">
-                            <label for="text">Texte : </label>
-                            <textarea name="text" type="text" rows="5" onChange={(e) => this.setState({ text: e.target.value })} />
+                        <div className="form">
+                            <label htmlFor="text">Texte : </label>
+                            <textarea name="text" rows="5" onChange={(e) => this.setState({ text: e.target.value })} />
                         </div>
-                        <button type="submit" class="submit">Poster son texte</button>
+                        <button type="submit" className="submit">Poster son texte</button>
                     </form>
                 </div>
             </div>

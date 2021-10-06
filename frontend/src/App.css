@@ -211,3 +211,10 @@ button.submit:hover{
   color: black;
   transition: 250ms ease-in;
 }
+
+.msgError {
+  color: #FF0000FF;
+}
+.msgSuccess {
+  color: #228B22FF;
+}

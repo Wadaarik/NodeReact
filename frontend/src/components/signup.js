@@ -44,21 +44,21 @@ class Signup extends React.Component {
             <div id="signup" className="signup">
                 <div id="form">
                     <h1>Créer un compte</h1>
-                    {this.state.error ? <p>{this.state.error}</p> : ''}
+                    {this.state.error ? <p className="msgError">{this.state.error}</p> : ''}
                     <form onSubmit={this.handleSubmit}>
-                        <div class="form">
-                            <label for="pseudo">Pseudo : </label>
+                        <div className="form">
+                            <label htmlFor="pseudo">Pseudo : </label>
                             <input name="pseudo" type="text" onChange={(e) => this.setState({ pseudo: e.target.value })} />
                         </div>
-                        <div class="form">
-                            <label for="email">Email : </label>
+                        <div className="form">
+                            <label htmlFor="email">Email : </label>
                             <input name="email" type="text" onChange={(e) => this.setState({ email: e.target.value })} />
                         </div>
-                        <div class="form">
-                            <label for="mdp">Mot de passe : </label>
+                        <div className="form">
+                            <label htmlFor="mdp">Mot de passe : </label>
                             <input name="mdp" type="password" onChange={(e) => this.setState({ password: e.target.value })} />
                         </div>
-                        <button type="submit" class="submit">S'inscrire</button>
+                        <button type="submit" className="submit">S'inscrire</button>
                     </form>
                 </div>
 
