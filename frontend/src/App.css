@@ -140,7 +140,7 @@ table {
 
 /* SignUp */
 
-#signup, #login {
+#signup, #login, #post {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -160,30 +160,40 @@ table {
   margin-top: 10vh;
 }
 
-#signup h1, #login h1{
+#signup h1, #login h1, #post h1{
  margin: 0;
 }
-#signup form, #login form{
+#signup form, #login form, #post form{
   width: 100%;
   display: flex;
   flex-direction: column; 
   align-items: center;
 }
 
-#signup form .form, #login form .form{
+#signup form .form, #login form .form, #post form .form{
   margin: 15px 0;
   width: 80%;
 }
 
-#signup form .form label, #login form .form label{
+#signup form .form label, #login form .form label, #post form .form label{
   font-size: 20px;
 }
 
-#signup form .form input, #login form .form input{
+#signup form .form input, #login form .form input, #post form .form input{
   margin-top: 5px;
   width: 100%;
   border-radius: 20px;
   border: 0px;
+  height: 30px;
+  padding: 0 10px;
+}
+
+#post form .form textarea{
+  margin-top: 5px;
+  width: 100%;
+  border-radius: 20px;
+  border: 0px;
+  padding: 5px 10px;
 }
 
 button.submit{

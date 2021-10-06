@@ -35,7 +35,7 @@ class Login extends React.Component {
     render()  {
         if (this.state.toRedirect !== null && this.state.toRedirect === true) {
             return (
-                <Redirect to="/table" />
+                <Redirect to="/post" />
             );
         }
         return  (
