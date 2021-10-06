@@ -1,21 +1,16 @@
 import '../App.css';
-import React from 'react';
+import React, {useState} from 'react';
 import axios from "axios";
 import {Redirect} from "react-router-dom";
 
-class Login extends React.Component {
-    state = {
-        email: '',
-        password: '',
-        error: null,
-        toRedirect: null
-    }
+export default function Login({callbackOnLog}) {
+    const  [email, setEmail] = useState(localStorage.getItem('tokenUser') !== null ? true : false);
+    const  [password, setPassword] = useState(localStorage.getItem('tokenUser') !== null ? true : false);
+    const  [error, setError] = useState(localStorage.getItem('tokenUser') !== null ? true : false);
+    const  [toRedirect, setToRedirect] = useState(localStorage.getItem('tokenUser') !== null ? true : false);
 
-    handleSubmit = event => {
+    function handleSubmit(event){
         event.preventDefault();
-
-        const email = this.state.email ;
-        const password = this.state.password ;
 
         axios.post(`http://localhost:2999/user/login/`, {
             email,
@@ -24,40 +19,36 @@ class Login extends React.Component {
             localStorage.clear();
             localStorage.setItem('tokenUser', res.data.token);
             localStorage.setItem('pseudoUser', res.data.pseudo);
-            this.setState({ toRedirect: true });
+            callbackOnLog();
+            setToRedirect(true);
         }).catch(error => {
             if (error.response) {
-                this.setState({ error: error.response.data.error });
+               setError(error.response.data.error);
             }
         });
     }
 
-    render()  {
-        if (this.state.toRedirect !== null && this.state.toRedirect === true) {
-            return (
-                <Redirect to="/post" />
-            );
-        }
-        return  (
-            <div id="login" className="login">
+return (
+    <>
+    {toRedirect && <Redirect to="/post" />}
+    <div id="login" className="login">
                 <div id="form">
                     <h1>Se login</h1>
-                    {this.state.error ? <p className="msgError">{this.state.error}</p> : ''}
-                    <form onSubmit={this.handleSubmit}>
+                    {error ? <p className="msgError">{error}</p> : ''}
+                    <form onSubmit={handleSubmit}>
                         <div className="form">
                             <label htmlFor="email">Email : </label>
-                            <input name="email" type="text" onChange={(e) => this.setState({email: e.target.value})}/>
+                            <input name="email" type="text" onChange={(e) => setEmail(e.target.value)}/>
                         </div>
                         <div className="form">
                             <label htmlFor="mdp">Mot de passe : </label>
-                            <input name="mdp" type="password" onChange={(e) => this.setState({password: e.target.value})}/>
+                            <input name="mdp" type="password" onChange={(e) => setPassword(e.target.value)}/>
                         </div>
                         <button type="submit" className="submit">Se connecter</button>
                     </form>
                 </div>
             </div>
-        );
-    }
+</>
+)
 }
 
-export default Login;

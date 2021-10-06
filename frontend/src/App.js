@@ -4,12 +4,6 @@ import React from 'react';
 import Navbar from './routes.js';
 import "./components/FontAwesomeIcons";
 
-class App extends React.Component {
-  render()  {
-    return  (
-      <Navbar></Navbar>
-    );
-  }
+export default function App(){
+  return <Navbar/>;
 }
-
-export default App;
