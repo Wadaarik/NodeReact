@@ -15,9 +15,7 @@ export default function Table() {
     function getAllPost() {
         axios.get(`http://localhost:2999/blog/`)
             .then(res => {
-                console.log(res.data);
-                const blog = res.data
-                setBlog(blog);
+                setBlog(res.data);
             })
     }
 
