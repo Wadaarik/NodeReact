@@ -1,20 +1,31 @@
 import '../App.css';
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {useLocation} from "react-router-dom";
 
-export default function Post() {
+export default function EditPost() {
+    const location = useLocation();
 
+    const [id] = useState(location.state.id);
     const [titre, setTitre] = useState('');
     const [text, setText] = useState('');
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
-    const autor = localStorage.getItem('pseudoUser') ;
+
+    useEffect(() => { getPostData(); }, []);
+
+    const getPostData = () => {
+        axios.get(`http://localhost:2999/blog/`+id)
+            .then(res => {
+                setTitre(res.data.titre);
+                setText(res.data.text);
+            });
+    }
 
     function handleSubmit(event) {
         event.preventDefault();
 
-        axios.post(`http://localhost:2999/blog/`, {
-            autor,
+        axios.put(`http://localhost:2999/blog/`+id, {
             titre,
             text
         }).then(res => {
@@ -34,18 +45,18 @@ export default function Post() {
         <div id="post" className="post">
             <div>
                 <form id="form" onSubmit={handleSubmit}>
-                    <h1>Création de post</h1>
+                    <h1>Modification d'un post</h1>
                     {success ? <p className="msgSuccess">{success}</p> : ''}
                     {error ? <p className="msgError">{error}</p> : ''}
                     <div className="form">
                         <label htmlFor="title">Titre : </label>
-                        <input name="title" type="text" onChange={(e) => setTitre(e.target.value)} />
+                        <input name="title" type="text" value={titre} onChange={(e) => setTitre(e.target.value)} />
                     </div>
                     <div className="form">
                         <label htmlFor="text">Texte : </label>
-                        <textarea name="text" rows="5" onChange={(e) => setText(e.target.value)} />
+                        <textarea name="text" value={text} rows="5" onChange={(e) => setText(e.target.value)} />
                     </div>
-                    <button type="submit" className="submit">Poster son texte</button>
+                    <button type="submit" className="submit">Modifier le poste</button>
                 </form>
             </div>
         </div>

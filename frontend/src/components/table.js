@@ -23,6 +23,13 @@ class Table extends React.Component {
             })
     }
 
+    editPost(id) {
+        this.props.history.push({
+            pathname: '/editPost',
+            state: { id: id }
+        })
+    }
+
     render()  {
         return  (
             <div id="table" className="table">
@@ -46,7 +53,7 @@ class Table extends React.Component {
                                         <td>{data.titre}</td>
                                         <td>{data.text}</td>
                                         <td>{data.autor}</td>
-                                        <td id="edit"><FontAwesomeIcon icon="pen" /></td>
+                                        <td id="edit" onClick={() => this.editPost(data._id)}><FontAwesomeIcon icon="pen" /></td>
                                         <td id="delete" onClick={() => this.handleDelete(data._id)}><FontAwesomeIcon icon="trash" /></td>
                                     </tr>
                                 )

@@ -7,6 +7,7 @@ import Signup from "./components/signup";
 import Login from "./components/login";
 import Post from "./components/post";
 import Iframe from 'react-iframe'
+import EditPost from "./components/editPost";
 
 export default function Navbar() {
     const [logged, setLogged] = useState(localStorage.getItem('tokenUser') !== null ? true : false);
@@ -32,6 +33,7 @@ export default function Navbar() {
                     </Route>
                     <Route path="/disconnect" component={Disconnect} />
                     <Route path="/play" component={Play} />
+                    <Route path="/editPost" component={EditPost} />
                 </div>
             </div>
         </BrowserRouter>
