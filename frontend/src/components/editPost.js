@@ -45,7 +45,7 @@ export default function EditPost() {
         <div id="post" className="post">
             <div>
                 <form id="form" onSubmit={handleSubmit}>
-                    <h1>Création de post</h1>
+                    <h1>Modification d'un post</h1>
                     {success ? <p className="msgSuccess">{success}</p> : ''}
                     {error ? <p className="msgError">{error}</p> : ''}
                     <div className="form">
@@ -56,7 +56,7 @@ export default function EditPost() {
                         <label htmlFor="text">Texte : </label>
                         <textarea name="text" value={text} rows="5" onChange={(e) => setText(e.target.value)} />
                     </div>
-                    <button type="submit" className="submit">Poster son texte</button>
+                    <button type="submit" className="submit">Modifier le poste</button>
                 </form>
             </div>
         </div>
