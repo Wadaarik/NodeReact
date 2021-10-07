@@ -48,12 +48,12 @@ export default function Table() {
                                     <td>{data.titre}</td>
                                     <td>{data.text}</td>
                                     <td>{data.autor}</td>
-                                    <td id="edit">
-                                        <Link to={{ pathname: "/editPost", state: { id: data._id } }}>
-                                            <FontAwesomeIcon icon="pen" />
-                                        </Link>
-                                    </td>
-                                    <td id="delete" onClick={() => deletePost(data._id)}><FontAwesomeIcon icon="trash" /></td>
+                                    {localStorage.getItem('pseudoUser') !== null
+                                        ? <>
+                                            <td id="edit"><Link to={{ pathname: "/editPost", state: { id: data._id } }}><FontAwesomeIcon icon="pen" /></Link></td>
+                                            <td id="delete" onClick={() => deletePost(data._id)}><FontAwesomeIcon icon="trash" /></td>
+                                        </>
+                                        : <td colSpan={2}><Link to={{ pathname: "/login" }}>Il faut être connecté</Link></td>     }
                                 </tr>
                             )
                         })}
