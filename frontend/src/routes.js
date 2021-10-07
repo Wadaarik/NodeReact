@@ -58,11 +58,11 @@ export default function Navbar() {
           <h1>Bonjour !</h1>
           <h2>Bienvenue sur notre super site fait en Node.js pour le back et React pour le front.</h2>
           <p>Ici nous avons quelques pages faites spécialement pour notre CRUD !</p>
-          <p>Tout d'abord pour voir les différents posts vous pouvez cliquer sur le bouton "Table" de la navbar. <small>N'oubliez pas de lancer le npm i sur le fichier back :)</small></p>
-          <p>Ensuite si vous voulez pouvoir en créer, vous pouvez simplement créer un compte puis vous connecter à celui là !</p>
+          <p>Tout d'abord pour voir les différents posts vous pouvez cliquer sur le boutton "Table" de la barre de navigation. <small>N'oubliez pas de lancer le npm i sur le fichier back :)</small></p>
+          <p>Ensuite si vous voulez pouvoir en créer, vous pouvez simplement créer un compte puis vous connectez à celui là !</p>
           <div>
-            <p>On a aussi mis en place un peu de threeJS</p>
-            <button class="chelou"><Link to="/three">ici</Link></button>
+            <h2>On a aussi mis en place un peu de ThreeJS</h2>
+            <button className="chelou"><Link to="/three">ici</Link></button>
           </div>
           <div>
             <small>Si vous n'avez pas envie de faire du CRUD ou de voir des dés, vous pouvez aussi cliquez ici !</small>
