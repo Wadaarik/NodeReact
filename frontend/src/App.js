@@ -5,5 +5,9 @@ import Navbar from './routes.js';
 import "./components/FontAwesomeIcons";
 
 export default function App() {
-  return <Navbar/>;
+  return (
+    <>
+        <Navbar/>
+    </>
+  );
 }

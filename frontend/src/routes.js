@@ -8,6 +8,7 @@ import Login from "./components/login";
 import Post from "./components/post";
 import Iframe from 'react-iframe'
 import EditPost from "./components/editPost";
+import Three from "./components/three";
 
 export default function Navbar() {
     const [logged, setLogged] = useState(localStorage.getItem('tokenUser') !== null ? true : false);
@@ -15,7 +16,7 @@ export default function Navbar() {
     return (
         <BrowserRouter>
             <div>
-                <div className="navbar">
+                <div className="navbar" style={{zIndex: "10"}}>
                     <Link className="logo" to="/"><img src={logo} alt="Sheesh"></img></Link>
                     <div className="links">
                         <p><Link to="/table">Table</Link></p>
@@ -42,6 +43,7 @@ export default function Navbar() {
                     <Route path="/disconnect" component={Disconnect} />
                     <Route path="/play" component={Play} />
                     <Route path="/editPost" component={EditPost} />
+                    <Route path="/three" component={Three} />
                 </div>
             </div>
         </BrowserRouter>
@@ -59,9 +61,14 @@ export default function Navbar() {
           <p>Tout d'abord pour voir les différents posts vous pouvez cliquer sur le bouton "Table" de la navbar. <small>N'oubliez pas de lancer le npm i sur le fichier back :)</small></p>
           <p>Ensuite si vous voulez pouvoir en créer, vous pouvez simplement créer un compte puis vous connecter à celui là !</p>
           <div>
-            <small>Si vous n'avez pas envie de faire du Crud vous pouvez aussi cliquez ici !</small>
+            <p>On a aussi mis en place un peu de threeJS</p>
+            <button class="chelou"><Link to="/three">ici</Link></button>
+          </div>
+          <div>
+            <small>Si vous n'avez pas envie de faire du CRUD ou de voir des dés, vous pouvez aussi cliquez ici !</small>
             <button><Link to="/play">Jouer</Link></button>
           </div>
+
         </div>
       </>
     );

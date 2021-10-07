@@ -62,18 +62,34 @@ body{
   font-size: 20px;
 }
 
+.home div {
+  display: flex;
+  align-items: center;
+}
+
 .home div button{
   margin-left: 10px;
   background-color: black;
   border: none;
   border-radius: 20px;
   padding: 5px;
+  transition: 250ms ease-in;
 }
 
 .home div button a{
   color: white;
   padding: 5px;
   text-decoration: none;
+  transition: 250ms ease-in;
+}
+
+.home div button:hover{
+  background-color: white;
+  transition: 250ms ease-in;
+}
+.home div button:hover a {
+  color: black;
+  transition: 250ms ease-in;
 }
 
 .iframe{
