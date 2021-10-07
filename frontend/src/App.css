@@ -47,6 +47,49 @@ body{
   }
 }
 
+/* Home */
+
+.home{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home p {
+  font-size: 20px;
+}
+
+.home div button{
+  margin-left: 10px;
+  background-color: black;
+  border: none;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.home div button a{
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.iframe{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iframe Iframe{
+  width: 820px;
+  height: 520px;
+  border: none;
+}
+
 /* Navbar */
 
 .navbar{
