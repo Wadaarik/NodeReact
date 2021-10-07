@@ -19,8 +19,16 @@ export default function Navbar() {
                     <Link className="logo" to="/"><img src={logo} alt="Sheesh"></img></Link>
                     <div className="links">
                         <p><Link to="/table">Table</Link></p>
-                        {logged ? (<p><Link to="/post">Post</Link></p>) : (<p><Link to="/signup">Sign Up</Link></p>)}
-                        {logged ? (<p><Link onClick={()=>setLogged(false)} to="/disconnect">Disconnect</Link></p>) : (<p><Link to="/login">Login</Link></p>)}
+                        {logged
+                            ? <>
+                                <p><Link to="/post">Post</Link></p>
+                                <p><Link onClick={()=>setLogged(false)} to="/disconnect">Disconnect</Link></p>
+                            </>
+                            : <>
+                                <p><Link to="/signup">Sign Up</Link></p>
+                                <p><Link to="/login">Login</Link></p>
+                            </>
+                        }
                     </div>
                 </div>
                 <div className="main-route-place">
