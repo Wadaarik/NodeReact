@@ -1,6 +1,7 @@
 import '../App.css';
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router';
 
 export default function Post() {
 
@@ -9,6 +10,8 @@ export default function Post() {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
     const autor = localStorage.getItem('pseudoUser') ;
+
+    if (localStorage.getItem('pseudoUser') !== null) {
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -50,4 +53,11 @@ export default function Post() {
             </div>
         </div>
     );
+        
+    } else {
+        return (
+            <Redirect to="/login"/>
+        );
+    }
+
 }
